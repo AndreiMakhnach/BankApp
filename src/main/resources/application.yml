@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5435/bankdb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+
+jwt:
+  secret: "mySuperSecretKeyWithAtLeast32CharactersLong!"
+  expiration: 3600000
+
+logging:
+  level:
+    com.bankapp: DEBUG
+    org.springframework.security: INFO
